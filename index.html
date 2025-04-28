@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Gephi Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Mini Gephi Dashboard</h1>
+
+<div class="container">
+  <div class="sidebar">
+    <h2>Upload / Edit</h2>
+    <input type="file" id="fileInput" accept=".csv, .json" />
+    <textarea id="dataInput" placeholder="Paste or edit edge list here..."></textarea>
+    <button id="loadFieldsBtn">Load Fields</button>
+
+    <div id="fieldMapping" style="display:none;">
+      <h2>Map Fields</h2>
+      <label>Source: <select id="sourceField"></select></label>
+      <label>Target: <select id="targetField"></select></label>
+      <label>Weight: <select id="weightField"><option value="">(none)</option></select></label>
+      <label>Interval: <select id="intervalField"><option value="">(none)</option></select></label>
+      <button id="updateGraphBtn">Update Graph</button>
+    </div>
+
+    <h2>Graph Controls</h2>
+    <label>Default Node Color: <input type="color" id="nodeColor" value="#4682b4"></label>
+    <label>Default Node Size: <input type="range" id="nodeSize" min="3" max="20" value="8"></label>
+
+    <h2>Filter</h2>
+    <input type="text" id="filterInput" placeholder="Filter node ID...">
+    <div id="timeFilter" style="display:none; margin-top:10px;">
+      <label>Time: <input type="range" id="timeSlider"><span id="currentYear"></span></label>
+      <button id="playButton">▶️</button>
+    </div>
+
+    <h2>Export</h2>
+    <button id="downloadBtn">Download as PNG</button>
+  </div>
+
+  <div class="main">
+    <div id="graph"></div>
+  </div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/save-svg-as-png/1.4.17/saveSvgAsPng.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
